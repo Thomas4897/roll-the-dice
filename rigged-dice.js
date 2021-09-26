@@ -1,17 +1,17 @@
 const prompt = require("prompt-sync")();
 
-const question = prompt("Enter number of sides your dice has: ");
+const question = Number(prompt("Enter number of sides your dice has: "));
 
-const riggedSide = prompt("What side do you want to rig: ");
+let riggedSide = Number(prompt("What side do you want to rig: "));
 
 const random = Math.random();
-const timesTen = random * (question + 1);
-const round = Math.floor(timesTen);
+const numSides = random * (question + 1);
+let round = Math.ceil(numSides);
 
-let roll = Math.ceil(Math.random() * (side + 1));
+console.log(round);
 
-if (roll === question + 1) {
-	roll = riggedSide;
+if (round === riggedSide + 1) {
+	round = riggedSide;
 }
 
-console.log("Your roll was", roll);
+console.log("Your roll was", round);
